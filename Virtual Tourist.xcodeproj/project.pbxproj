@@ -14,7 +14,7 @@
 		CF0DF1FD1E5E8221006AD652 /* SF-UI-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0DF1F71E5E8221006AD652 /* SF-UI-Text-Regular.otf */; };
 		CF0DF1FE1E5E8221006AD652 /* SF-UI-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0DF1F81E5E8221006AD652 /* SF-UI-Text-Semibold.otf */; };
 		CF518F5A1E5BE37400F6609B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF518F591E5BE37400F6609B /* AppDelegate.swift */; };
-		CF518F5C1E5BE37400F6609B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF518F5B1E5BE37400F6609B /* ViewController.swift */; };
+		CF518F5C1E5BE37400F6609B /* TravelLocationsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF518F5B1E5BE37400F6609B /* TravelLocationsMapViewController.swift */; };
 		CF518F5F1E5BE37400F6609B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF518F5D1E5BE37400F6609B /* Main.storyboard */; };
 		CF518F611E5BE37400F6609B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF518F601E5BE37400F6609B /* Assets.xcassets */; };
 		CF518F641E5BE37400F6609B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF518F621E5BE37400F6609B /* LaunchScreen.storyboard */; };
@@ -29,7 +29,7 @@
 		CF0DF1F81E5E8221006AD652 /* SF-UI-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Semibold.otf"; sourceTree = "<group>"; };
 		CF518F561E5BE37400F6609B /* Virtual Tourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Virtual Tourist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF518F591E5BE37400F6609B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CF518F5B1E5BE37400F6609B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CF518F5B1E5BE37400F6609B /* TravelLocationsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelLocationsMapViewController.swift; sourceTree = "<group>"; };
 		CF518F5E1E5BE37400F6609B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF518F601E5BE37400F6609B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF518F631E5BE37400F6609B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 			children = (
 				CF0DF1F11E5E80DA006AD652 /* Supporting Files */,
 				CF518F591E5BE37400F6609B /* AppDelegate.swift */,
-				CF518F5B1E5BE37400F6609B /* ViewController.swift */,
+				CF518F5B1E5BE37400F6609B /* TravelLocationsMapViewController.swift */,
 				CF518F5D1E5BE37400F6609B /* Main.storyboard */,
 				CF518F601E5BE37400F6609B /* Assets.xcassets */,
 				CF518F621E5BE37400F6609B /* LaunchScreen.storyboard */,
@@ -177,7 +177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF518F5C1E5BE37400F6609B /* ViewController.swift in Sources */,
+				CF518F5C1E5BE37400F6609B /* TravelLocationsMapViewController.swift in Sources */,
 				CF518F5A1E5BE37400F6609B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
