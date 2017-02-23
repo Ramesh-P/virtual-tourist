@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF0DF1F91E5E8221006AD652 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF0DF1F31E5E8220006AD652 /* Lato-Black.ttf */; };
+		CF0DF1FA1E5E8221006AD652 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF0DF1F41E5E8220006AD652 /* Lato-Bold.ttf */; };
+		CF0DF1FB1E5E8221006AD652 /* SF-UI-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0DF1F51E5E8221006AD652 /* SF-UI-Text-Bold.otf */; };
+		CF0DF1FC1E5E8221006AD652 /* SF-UI-Text-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0DF1F61E5E8221006AD652 /* SF-UI-Text-Medium.otf */; };
+		CF0DF1FD1E5E8221006AD652 /* SF-UI-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0DF1F71E5E8221006AD652 /* SF-UI-Text-Regular.otf */; };
+		CF0DF1FE1E5E8221006AD652 /* SF-UI-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0DF1F81E5E8221006AD652 /* SF-UI-Text-Semibold.otf */; };
 		CF518F5A1E5BE37400F6609B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF518F591E5BE37400F6609B /* AppDelegate.swift */; };
 		CF518F5C1E5BE37400F6609B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF518F5B1E5BE37400F6609B /* ViewController.swift */; };
 		CF518F5F1E5BE37400F6609B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF518F5D1E5BE37400F6609B /* Main.storyboard */; };
@@ -15,6 +21,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF0DF1F31E5E8220006AD652 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		CF0DF1F41E5E8220006AD652 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		CF0DF1F51E5E8221006AD652 /* SF-UI-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Bold.otf"; sourceTree = "<group>"; };
+		CF0DF1F61E5E8221006AD652 /* SF-UI-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Medium.otf"; sourceTree = "<group>"; };
+		CF0DF1F71E5E8221006AD652 /* SF-UI-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Regular.otf"; sourceTree = "<group>"; };
+		CF0DF1F81E5E8221006AD652 /* SF-UI-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Semibold.otf"; sourceTree = "<group>"; };
 		CF518F561E5BE37400F6609B /* Virtual Tourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Virtual Tourist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF518F591E5BE37400F6609B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF518F5B1E5BE37400F6609B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +47,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF0DF1F11E5E80DA006AD652 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CF0DF1F21E5E80E9006AD652 /* Fonts */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CF0DF1F21E5E80E9006AD652 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CF0DF1F31E5E8220006AD652 /* Lato-Black.ttf */,
+				CF0DF1F41E5E8220006AD652 /* Lato-Bold.ttf */,
+				CF0DF1F51E5E8221006AD652 /* SF-UI-Text-Bold.otf */,
+				CF0DF1F61E5E8221006AD652 /* SF-UI-Text-Medium.otf */,
+				CF0DF1F71E5E8221006AD652 /* SF-UI-Text-Regular.otf */,
+				CF0DF1F81E5E8221006AD652 /* SF-UI-Text-Semibold.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		CF518F4D1E5BE37400F6609B = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +87,7 @@
 		CF518F581E5BE37400F6609B /* Virtual Tourist */ = {
 			isa = PBXGroup;
 			children = (
+				CF0DF1F11E5E80DA006AD652 /* Supporting Files */,
 				CF518F591E5BE37400F6609B /* AppDelegate.swift */,
 				CF518F5B1E5BE37400F6609B /* ViewController.swift */,
 				CF518F5D1E5BE37400F6609B /* Main.storyboard */,
@@ -124,8 +158,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF0DF1FB1E5E8221006AD652 /* SF-UI-Text-Bold.otf in Resources */,
+				CF0DF1F91E5E8221006AD652 /* Lato-Black.ttf in Resources */,
+				CF0DF1FD1E5E8221006AD652 /* SF-UI-Text-Regular.otf in Resources */,
+				CF0DF1FA1E5E8221006AD652 /* Lato-Bold.ttf in Resources */,
 				CF518F641E5BE37400F6609B /* LaunchScreen.storyboard in Resources */,
 				CF518F611E5BE37400F6609B /* Assets.xcassets in Resources */,
+				CF0DF1FE1E5E8221006AD652 /* SF-UI-Text-Semibold.otf in Resources */,
+				CF0DF1FC1E5E8221006AD652 /* SF-UI-Text-Medium.otf in Resources */,
 				CF518F5F1E5BE37400F6609B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
