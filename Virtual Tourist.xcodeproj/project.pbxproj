@@ -13,6 +13,8 @@
 		CF0DF1FC1E5E8221006AD652 /* SF-UI-Text-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0DF1F61E5E8221006AD652 /* SF-UI-Text-Medium.otf */; };
 		CF0DF1FD1E5E8221006AD652 /* SF-UI-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0DF1F71E5E8221006AD652 /* SF-UI-Text-Regular.otf */; };
 		CF0DF1FE1E5E8221006AD652 /* SF-UI-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0DF1F81E5E8221006AD652 /* SF-UI-Text-Semibold.otf */; };
+		CF0DF2001E5EB20D006AD652 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0DF1FF1E5EB20D006AD652 /* Constants.swift */; };
+		CF0DF2021E5EB2AC006AD652 /* AppNavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0DF2011E5EB2AC006AD652 /* AppNavigationControllerDelegate.swift */; };
 		CF518F5A1E5BE37400F6609B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF518F591E5BE37400F6609B /* AppDelegate.swift */; };
 		CF518F5C1E5BE37400F6609B /* TravelLocationsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF518F5B1E5BE37400F6609B /* TravelLocationsMapViewController.swift */; };
 		CF518F5F1E5BE37400F6609B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF518F5D1E5BE37400F6609B /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 		CF0DF1F61E5E8221006AD652 /* SF-UI-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Medium.otf"; sourceTree = "<group>"; };
 		CF0DF1F71E5E8221006AD652 /* SF-UI-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Regular.otf"; sourceTree = "<group>"; };
 		CF0DF1F81E5E8221006AD652 /* SF-UI-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Semibold.otf"; sourceTree = "<group>"; };
+		CF0DF1FF1E5EB20D006AD652 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CF0DF2011E5EB2AC006AD652 /* AppNavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNavigationControllerDelegate.swift; sourceTree = "<group>"; };
 		CF518F561E5BE37400F6609B /* Virtual Tourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Virtual Tourist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF518F591E5BE37400F6609B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF518F5B1E5BE37400F6609B /* TravelLocationsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelLocationsMapViewController.swift; sourceTree = "<group>"; };
@@ -87,13 +91,15 @@
 		CF518F581E5BE37400F6609B /* Virtual Tourist */ = {
 			isa = PBXGroup;
 			children = (
-				CF0DF1F11E5E80DA006AD652 /* Supporting Files */,
+				CF518F651E5BE37400F6609B /* Info.plist */,
 				CF518F591E5BE37400F6609B /* AppDelegate.swift */,
 				CF518F5B1E5BE37400F6609B /* TravelLocationsMapViewController.swift */,
-				CF518F5D1E5BE37400F6609B /* Main.storyboard */,
 				CF518F601E5BE37400F6609B /* Assets.xcassets */,
 				CF518F621E5BE37400F6609B /* LaunchScreen.storyboard */,
-				CF518F651E5BE37400F6609B /* Info.plist */,
+				CF518F5D1E5BE37400F6609B /* Main.storyboard */,
+				CF0DF1F11E5E80DA006AD652 /* Supporting Files */,
+				CF0DF1FF1E5EB20D006AD652 /* Constants.swift */,
+				CF0DF2011E5EB2AC006AD652 /* AppNavigationControllerDelegate.swift */,
 			);
 			path = "Virtual Tourist";
 			sourceTree = "<group>";
@@ -177,8 +183,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF0DF2021E5EB2AC006AD652 /* AppNavigationControllerDelegate.swift in Sources */,
 				CF518F5C1E5BE37400F6609B /* TravelLocationsMapViewController.swift in Sources */,
 				CF518F5A1E5BE37400F6609B /* AppDelegate.swift in Sources */,
+				CF0DF2001E5EB20D006AD652 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

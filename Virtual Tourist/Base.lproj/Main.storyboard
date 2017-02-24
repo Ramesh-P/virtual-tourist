@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Dwc-O4-U8s">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,11 +18,105 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Knj-7Q-844" userLabel="Travel Locations">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="564"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </mapView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yCw-CJ-xHb" userLabel="Banner">
+                                <rect key="frame" x="0.0" y="564" width="414" height="64"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="iia-ic-sZI"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap and Hold to Drop Pin . Tap Pin to Add Pictures" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljI-Xw-PPe" userLabel="Hint">
+                                <rect key="frame" x="0.0" y="564" width="414" height="64"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="pji-ek-ZG5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVx-TI-wKO" userLabel="Left Toolbar">
+                                <rect key="frame" x="0.0" y="628" width="207" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="yxk-u8-XeB"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="uCv-xq-2JL"/>
+                                    <barButtonItem title="RESET MAP SIZE" id="91S-mc-mgn" userLabel="Reset Map Size">
+                                        <connections>
+                                            <action selector="resetMapSize:" destination="BYZ-38-t0r" id="LJN-Fo-Ktk"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="0it-eo-wfP"/>
+                                </items>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" red="0.14901960784313725" green="0.18823529411764706" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBs-lv-DTX" userLabel="Right Toolbar">
+                                <rect key="frame" x="207" y="628" width="207" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="zPG-q8-3l0"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="BNY-Mk-keE"/>
+                                    <barButtonItem title="REMOVE ALL PINS" id="oGL-13-FKR" userLabel="Delete All Pins">
+                                        <connections>
+                                            <action selector="deleteAllPins:" destination="BYZ-38-t0r" id="lti-58-Sy6"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="tLr-93-rB8"/>
+                                </items>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" red="0.10196078431372549" green="0.12549019607843137" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ljI-Xw-PPe" secondAttribute="trailing" id="5DP-82-3tD"/>
+                            <constraint firstItem="yCw-CJ-xHb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="BuF-Fo-Wg4"/>
+                            <constraint firstAttribute="trailing" secondItem="gBs-lv-DTX" secondAttribute="trailing" id="CgS-kh-B7k"/>
+                            <constraint firstItem="kVx-TI-wKO" firstAttribute="height" secondItem="gBs-lv-DTX" secondAttribute="height" id="EhH-bc-ksk"/>
+                            <constraint firstAttribute="trailing" secondItem="Knj-7Q-844" secondAttribute="trailing" id="J9A-qe-GA0"/>
+                            <constraint firstItem="kVx-TI-wKO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="NIt-o7-bRp"/>
+                            <constraint firstItem="ljI-Xw-PPe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="PRy-kD-1wy"/>
+                            <constraint firstItem="kVx-TI-wKO" firstAttribute="width" secondItem="gBs-lv-DTX" secondAttribute="width" id="Q51-9o-EHp"/>
+                            <constraint firstItem="Knj-7Q-844" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="eoZ-Ra-9Yf"/>
+                            <constraint firstItem="gBs-lv-DTX" firstAttribute="top" secondItem="yCw-CJ-xHb" secondAttribute="bottom" id="hfR-H7-m0Y"/>
+                            <constraint firstItem="yCw-CJ-xHb" firstAttribute="top" secondItem="Knj-7Q-844" secondAttribute="bottom" id="pZD-0v-ia9"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kVx-TI-wKO" secondAttribute="bottom" id="rXm-IO-i8z"/>
+                            <constraint firstItem="gBs-lv-DTX" firstAttribute="leading" secondItem="kVx-TI-wKO" secondAttribute="trailing" id="rhJ-G9-hIw"/>
+                            <constraint firstItem="yCw-CJ-xHb" firstAttribute="top" secondItem="Knj-7Q-844" secondAttribute="bottom" id="sCb-rr-lFr"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gBs-lv-DTX" secondAttribute="bottom" id="thD-Pd-aot"/>
+                            <constraint firstItem="ljI-Xw-PPe" firstAttribute="top" secondItem="Knj-7Q-844" secondAttribute="bottom" id="ubY-Va-pgc"/>
+                            <constraint firstItem="Knj-7Q-844" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wBN-t7-IIG"/>
+                            <constraint firstItem="gBs-lv-DTX" firstAttribute="leading" secondItem="kVx-TI-wKO" secondAttribute="trailing" id="wPG-sJ-BKv"/>
+                            <constraint firstItem="gBs-lv-DTX" firstAttribute="top" secondItem="ljI-Xw-PPe" secondAttribute="bottom" id="y99-Zn-fOV"/>
+                            <constraint firstAttribute="trailing" secondItem="yCw-CJ-xHb" secondAttribute="trailing" id="zpO-k2-Hvl"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="cDY-CV-fw8"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="cDY-CV-fw8">
+                        <barButtonItem key="rightBarButtonItem" title="EDIT" id="OFT-X2-ziu" userLabel="Delete Pin">
+                            <connections>
+                                <action selector="deletePin:" destination="BYZ-38-t0r" id="4wZ-aI-PIA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="banner" destination="yCw-CJ-xHb" id="aEb-Hq-VUJ"/>
+                        <outlet property="hint" destination="ljI-Xw-PPe" id="ckI-pJ-aaq"/>
+                        <outlet property="pinAction" destination="OFT-X2-ziu" id="5QA-nn-TWe"/>
+                        <outlet property="travelLocations" destination="Knj-7Q-844" id="HE1-pH-SRL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -31,9 +125,9 @@
         <!--Navigation Controller-->
         <scene sceneID="bN1-du-m9w">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="Dwc-O4-U8s" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dwc-O4-U8s" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="dcD-KY-HcT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="dcD-KY-HcT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

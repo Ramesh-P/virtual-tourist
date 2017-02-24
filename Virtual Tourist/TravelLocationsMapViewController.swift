@@ -6,13 +6,44 @@
 //  Copyright © 2017 Ramesh Parthasarathy. All rights reserved.
 //
 
+import Foundation
 import UIKit
+import MapKit
 
-class TravelLocationsMapViewController: UIViewController {
-
+// MARK: TravelLocationsMapViewController
+class TravelLocationsMapViewController: UIViewController, UINavigationControllerDelegate {
+    
+    // MARK: Properties
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let navigationControllerDelegate = AppNavigationControllerDelegate()
+    
+    // MARK: Outlets
+    @IBOutlet weak var travelLocations: MKMapView!
+    @IBOutlet weak var banner: UIImageView!
+    @IBOutlet weak var hint: UILabel!
+    @IBOutlet weak var pinAction: UIBarButtonItem!
+    
+    // MARK: Actions
+    @IBAction func deletePin(_ sender: UIBarButtonItem) {
+        
+    }
+    
+    @IBAction func resetMapSize(_ sender: UIBarButtonItem) {
+        
+    }
+    
+    @IBAction func deleteAllPins(_ sender: UIBarButtonItem) {
+        
+    }
+    
+    // MARK: Overrides
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        // Initialize
+        navigationControllerDelegate.setAppTitleImage(self)
+        banner.image = UIImage(named: appDelegate.bannerImage)
         
         // Verify available fonts
         /*
@@ -24,7 +55,7 @@ class TravelLocationsMapViewController: UIViewController {
             }
         }
  */
-    }
+}
 
     override func didReceiveMemoryWarning() {
         

@@ -12,7 +12,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var bannerImage: String = String()
+    
+    // MARK: Application Delegate
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // Set status bar color
@@ -24,6 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Hide toolbar border
         UIToolbar.appearance().clipsToBounds = true
+        
+        // Set UI object defaults
+        setDefaults()
 
         return true
     }
@@ -48,6 +53,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    // MARK: Application Functions
+    func setDefaults() {
+        
+        // Get screen height
+        let screenHeight = UIScreen.main.bounds.size.height
+        
+        // Set UI object appearance
+        var barButtonFontSize: CGFloat = CGFloat()
+        var labelFontSize: CGFloat = CGFloat()
+        
+        switch screenHeight {
+        case Constants.ScreenHeight.phonePlus:
+            barButtonFontSize = 13.2
+            labelFontSize = 14.4
+            bannerImage = "BannerImage"
+        case Constants.ScreenHeight.phone:
+            barButtonFontSize = 12.0
+            labelFontSize = 13.0
+            bannerImage = "BannerImage"
+        case Constants.ScreenHeight.phoneSE:
+            barButtonFontSize = 10.2
+            labelFontSize = 11.1
+            bannerImage = "BannerImage-568h"
+        default:
+            break
+        }
+        
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Lato-Bold", size: barButtonFontSize) as Any], for: .normal)
+        UILabel.appearance().font = UIFont(name: "SFUIText-Semibold", size: labelFontSize)
     }
 }
 
