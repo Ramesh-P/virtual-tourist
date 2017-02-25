@@ -114,8 +114,8 @@
                     <connections>
                         <outlet property="banner" destination="yCw-CJ-xHb" id="aEb-Hq-VUJ"/>
                         <outlet property="hint" destination="ljI-Xw-PPe" id="ckI-pJ-aaq"/>
+                        <outlet property="map" destination="Knj-7Q-844" id="tdg-KI-9DK"/>
                         <outlet property="pinAction" destination="OFT-X2-ziu" id="5QA-nn-TWe"/>
-                        <outlet property="travelLocations" destination="Knj-7Q-844" id="HE1-pH-SRL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -44,7 +44,7 @@ class TravelLocationsMapViewController: UIViewController, UINavigationController
     let navigationControllerDelegate = AppNavigationControllerDelegate()
     
     // MARK: Outlets
-    @IBOutlet weak var travelLocations: MKMapView!
+    @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var banner: UIImageView!
     @IBOutlet weak var hint: UILabel!
     @IBOutlet weak var pinAction: UIBarButtonItem!
@@ -71,6 +71,7 @@ class TravelLocationsMapViewController: UIViewController, UINavigationController
         navigationControllerDelegate.setAppTitleImage(self)
         banner.image = UIImage(named: appDelegate.bannerImage)
         setMapTileOverlay()
+        addGestureReconizer()
 }
 
     override func didReceiveMemoryWarning() {
@@ -86,8 +87,29 @@ class TravelLocationsMapViewController: UIViewController, UINavigationController
         let overlay = MKTileOverlay(urlTemplate: template)
         
         overlay.canReplaceMapContent = true
-        travelLocations.add(overlay, level: .aboveLabels)
-        travelLocations.delegate = self
+        map.add(overlay, level: .aboveLabels)
+        map.delegate = self
+    }
+    
+    func addGestureReconizer() {
+        
+        // Add tap and hold gesture to map view
+        let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.addLocationPin(uponGestureReconizer:)))
+        map.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    func addLocationPin(uponGestureReconizer whereTouched: UILongPressGestureRecognizer) {
+        
+        // Add location pin in the map where touched
+        let location = whereTouched.location(in: map)
+        let coordinate = map.convert(location, toCoordinateFrom: map)
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate
+        
+        if (whereTouched.state == .began) {
+            map.addAnnotation(annotation)
+        }
     }
 }
 
@@ -102,6 +124,38 @@ extension TravelLocationsMapViewController: MKMapViewDelegate {
         }
         
         return MKTileOverlayRenderer(tileOverlay: tileOverlay)
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        // Add custom pin to the map
+        let Identifier = "LocationPin"
+        var annotationView: MKAnnotationView?
+        annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: Identifier)
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: Identifier)
+            annotationView?.image = UIImage(named: "Pin")
+            annotationView?.canShowCallout = false
+            annotationView?.centerOffset = CGPoint(x: 0.0, y: -(annotationView?.image?.size.height)!/2)
+            annotationView?.isDraggable = true
+        } else {
+            annotationView?.annotation = annotation
+        }
+        
+        return annotationView
+    }
+
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState) {
+        
+        // Drag and move pin to a new location
+        switch newState {
+        case .starting:
+            view.dragState = .dragging
+        case .canceling, .ending:
+            view.dragState = .none
+        default: break
+        }
     }
 }
 
