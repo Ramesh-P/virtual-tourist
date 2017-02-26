@@ -28,6 +28,7 @@
 		CF518F5F1E5BE37400F6609B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF518F5D1E5BE37400F6609B /* Main.storyboard */; };
 		CF518F611E5BE37400F6609B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF518F601E5BE37400F6609B /* Assets.xcassets */; };
 		CF518F641E5BE37400F6609B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF518F621E5BE37400F6609B /* LaunchScreen.storyboard */; };
+		CF6DEC0C1E628252007F7ACB /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6DEC0B1E628252007F7ACB /* Annotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		CF518F601E5BE37400F6609B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF518F631E5BE37400F6609B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF518F651E5BE37400F6609B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF6DEC0B1E628252007F7ACB /* Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,23 +109,24 @@
 		CF518F581E5BE37400F6609B /* Virtual Tourist */ = {
 			isa = PBXGroup;
 			children = (
-				CF4247F81E62646D004CF481 /* Preset+CoreDataClass.swift */,
-				CF4247F91E62646D004CF481 /* Preset+CoreDataProperties.swift */,
-				CF4247FA1E62646D004CF481 /* Pin+CoreDataClass.swift */,
-				CF4247FB1E62646D004CF481 /* Pin+CoreDataProperties.swift */,
+				CF518F651E5BE37400F6609B /* Info.plist */,
+				CF6DEC0B1E628252007F7ACB /* Annotation.swift */,
+				CF518F591E5BE37400F6609B /* AppDelegate.swift */,
+				CF0DF2011E5EB2AC006AD652 /* AppNavigationControllerDelegate.swift */,
+				CF0DF1FF1E5EB20D006AD652 /* Constants.swift */,
+				CF4247EA1E62606E004CF481 /* CoreDataStack.swift */,
 				CF4247FC1E62646D004CF481 /* Photo+CoreDataClass.swift */,
 				CF4247FD1E62646D004CF481 /* Photo+CoreDataProperties.swift */,
-				CF518F651E5BE37400F6609B /* Info.plist */,
-				CF518F591E5BE37400F6609B /* AppDelegate.swift */,
+				CF4247FA1E62646D004CF481 /* Pin+CoreDataClass.swift */,
+				CF4247FB1E62646D004CF481 /* Pin+CoreDataProperties.swift */,
+				CF4247F81E62646D004CF481 /* Preset+CoreDataClass.swift */,
+				CF4247F91E62646D004CF481 /* Preset+CoreDataProperties.swift */,
 				CF518F5B1E5BE37400F6609B /* TravelLocationsMapViewController.swift */,
 				CF518F601E5BE37400F6609B /* Assets.xcassets */,
 				CF518F621E5BE37400F6609B /* LaunchScreen.storyboard */,
 				CF518F5D1E5BE37400F6609B /* Main.storyboard */,
-				CF0DF1F11E5E80DA006AD652 /* Supporting Files */,
-				CF0DF1FF1E5EB20D006AD652 /* Constants.swift */,
-				CF0DF2011E5EB2AC006AD652 /* AppNavigationControllerDelegate.swift */,
 				CF4247E71E62596A004CF481 /* Model.xcdatamodeld */,
-				CF4247EA1E62606E004CF481 /* CoreDataStack.swift */,
+				CF0DF1F11E5E80DA006AD652 /* Supporting Files */,
 			);
 			path = "Virtual Tourist";
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				CF4248021E62646D004CF481 /* Photo+CoreDataClass.swift in Sources */,
 				CF4247FF1E62646D004CF481 /* Preset+CoreDataProperties.swift in Sources */,
 				CF0DF2021E5EB2AC006AD652 /* AppNavigationControllerDelegate.swift in Sources */,
+				CF6DEC0C1E628252007F7ACB /* Annotation.swift in Sources */,
 				CF4248011E62646D004CF481 /* Pin+CoreDataProperties.swift in Sources */,
 				CF518F5C1E5BE37400F6609B /* TravelLocationsMapViewController.swift in Sources */,
 				CF4248031E62646D004CF481 /* Photo+CoreDataProperties.swift in Sources */,

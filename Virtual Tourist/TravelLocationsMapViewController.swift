@@ -42,6 +42,7 @@ class TravelLocationsMapViewController: UIViewController, UINavigationController
     // MARK: Properties
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let navigationControllerDelegate = AppNavigationControllerDelegate()
+    var annotation: Annotation?
     
     // MARK: Outlets
     @IBOutlet weak var map: MKMapView!
@@ -100,15 +101,17 @@ class TravelLocationsMapViewController: UIViewController, UINavigationController
     
     func addLocationPin(uponGestureReconizer whereTouched: UILongPressGestureRecognizer) {
         
-        // Add location pin in the map where touched
+        // Add location pin in the map where touched and move to a new location if desired
         let location = whereTouched.location(in: map)
         let coordinate = map.convert(location, toCoordinateFrom: map)
         
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = coordinate
-        
         if (whereTouched.state == .began) {
-            map.addAnnotation(annotation)
+            annotation = Annotation(locationCoordinate: coordinate)
+            map.addAnnotation(annotation!)
+        } else if (whereTouched.state == .changed) {
+            annotation?.updateCoordinate(newLocationCoordinate: coordinate)
+        } else if (whereTouched.state == .ended) {
+            
         }
     }
 }
@@ -138,24 +141,11 @@ extension TravelLocationsMapViewController: MKMapViewDelegate {
             annotationView?.image = UIImage(named: "Pin")
             annotationView?.canShowCallout = false
             annotationView?.centerOffset = CGPoint(x: 0.0, y: -(annotationView?.image?.size.height)!/2)
-            annotationView?.isDraggable = true
         } else {
             annotationView?.annotation = annotation
         }
         
         return annotationView
-    }
-
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState) {
-        
-        // Drag and move pin to a new location
-        switch newState {
-        case .starting:
-            view.dragState = .dragging
-        case .canceling, .ending:
-            view.dragState = .none
-        default: break
-        }
     }
 }
 
