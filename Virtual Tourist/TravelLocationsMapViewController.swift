@@ -86,6 +86,7 @@ class TravelLocationsMapViewController: UIViewController, UINavigationController
         
         // Layout
         fetchRegion()
+        fetchPins()
     }
 
     override func didReceiveMemoryWarning() {
@@ -116,6 +117,37 @@ private extension TravelLocationsMapViewController {
         map.addGestureRecognizer(gestureRecognizer)
     }
     
+    func fetchPins() {
+        
+        // Fetch location pins from data store
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Pin")
+        
+        do {
+            let results = try appDelegate.stack.context.fetch(fetchRequest)
+            if let results = results as? [Pin] {
+                if (results.count > 0) {
+                    print(results.count)
+                    loadLocationPins(from: results)
+                }
+            }
+        } catch {
+            fatalError("Could not fetch map presets: \(error)")
+        }
+    }
+    
+    func loadLocationPins(from results: [Pin]) {
+        
+        // Add stored location pins to the map
+        var annotations = [Annotation]()
+        
+        for pin in results {
+            annotation = Annotation(pin: pin)
+            annotations.append(annotation!)
+        }
+        
+        map.addAnnotations(annotations)
+    }
+    
     @objc func addLocationPin(uponGestureReconizer whereTouched: UILongPressGestureRecognizer) {
         
         // Add location pin in the map where touched and move to a new location if desired
@@ -128,6 +160,14 @@ private extension TravelLocationsMapViewController {
         } else if (whereTouched.state == .changed) {
             annotation?.updateCoordinate(newLocationCoordinate: coordinate)
         } else if (whereTouched.state == .ended) {
+            
+            // Save location pin
+            pin = Pin(latitude: (annotation?.locationCoordinate.latitude)!, longitude: (annotation?.locationCoordinate.longitude)!, context: appDelegate.stack.context)
+            appDelegate.stack.saveContext()
+            
+            // Download pictures for pin location
+
+            
             
         }
     }
