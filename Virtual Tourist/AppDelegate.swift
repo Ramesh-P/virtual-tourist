@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import MapKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var bannerImage: String = String()
+    var latitudeDelta: CLLocationDegrees = CLLocationDegrees()
+    var longitudeDelta: CLLocationDegrees = CLLocationDegrees()
+    let stack = CoreDataStack(modelName: "Model")!
     
     // MARK: Application Delegate
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -66,18 +70,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var labelFontSize: CGFloat = CGFloat()
         
         switch screenHeight {
-        case Constants.ScreenHeight.phonePlus:
-            barButtonFontSize = 13.2
-            labelFontSize = 14.4
-            bannerImage = "BannerImage"
-        case Constants.ScreenHeight.phone:
-            barButtonFontSize = 12.0
-            labelFontSize = 13.0
-            bannerImage = "BannerImage"
         case Constants.ScreenHeight.phoneSE:
-            barButtonFontSize = 10.2
-            labelFontSize = 11.1
+            barButtonFontSize = Constants.FontSize.BarButton.phoneSE
+            labelFontSize = Constants.FontSize.Label.phoneSE
             bannerImage = "BannerImage-568h"
+            latitudeDelta = Constants.DefaultSpan.LatitudeDelta.phoneSE
+            longitudeDelta = Constants.DefaultSpan.LongitudeDelta.phoneSE
+        case Constants.ScreenHeight.phone:
+            barButtonFontSize = Constants.FontSize.BarButton.phone
+            labelFontSize = Constants.FontSize.Label.phone
+            bannerImage = "BannerImage"
+            latitudeDelta = Constants.DefaultSpan.LatitudeDelta.phone
+            longitudeDelta = Constants.DefaultSpan.LongitudeDelta.phone
+        case Constants.ScreenHeight.phonePlus:
+            barButtonFontSize = Constants.FontSize.BarButton.phonePlus
+            labelFontSize = Constants.FontSize.Label.phonePlus
+            bannerImage = "BannerImage"
+            latitudeDelta = Constants.DefaultSpan.LatitudeDelta.phonePlus
+            longitudeDelta = Constants.DefaultSpan.LongitudeDelta.phonePlus
         default:
             break
         }

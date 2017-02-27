@@ -5,13 +5,14 @@
 //  Copyright © 2016 udacity.com. All rights reserved.
 //
 
-import Foundation
 import CoreData
 
-// MARK: CoreDataStack
+// MARK: - CoreDataStack
+
 struct CoreDataStack {
     
     // MARK: Properties
+    
     private let model: NSManagedObjectModel
     internal let coordinator: NSPersistentStoreCoordinator
     private let modelURL: URL
@@ -19,6 +20,7 @@ struct CoreDataStack {
     let context: NSManagedObjectContext
     
     // MARK: Initializers
+    
     init?(modelName: String) {
         
         // Assumes the model is in the main bundle
@@ -26,7 +28,6 @@ struct CoreDataStack {
             print("Unable to find \(modelName)in the main bundle")
             return nil
         }
-        
         self.modelURL = modelURL
         
         // Try to create the model from the URL
@@ -34,13 +35,12 @@ struct CoreDataStack {
             print("unable to create a model from \(modelURL)")
             return nil
         }
-        
         self.model = model
         
         // Create the store coordinator
         coordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
         
-        // Create a context and add connect it to the coordinator
+        // create a context and add connect it to the coordinator
         context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         context.persistentStoreCoordinator = coordinator
         
@@ -65,16 +65,17 @@ struct CoreDataStack {
     }
     
     // MARK: Utils
+    
     func addStoreCoordinator(_ storeType: String, configuration: String?, storeURL: URL, options : [NSObject:AnyObject]?) throws {
         try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: dbURL, options: nil)
     }
 }
 
-// MARK: CoreDataStack (Removing Data)
+// MARK: - CoreDataStack (Removing Data)
+
 internal extension CoreDataStack  {
     
     func dropAllData() throws {
-        
         // delete all the objects in the db. This won't delete the files, it will
         // just leave empty tables.
         try coordinator.destroyPersistentStore(at: dbURL, ofType:NSSQLiteStoreType , options: nil)
@@ -82,13 +83,18 @@ internal extension CoreDataStack  {
     }
 }
 
-// MARK: CoreDataStack (Save Data)
+// MARK: - CoreDataStack (Save Data)
+
 extension CoreDataStack {
     
-    func saveContext() throws {
+    func saveContext() {
         
         if context.hasChanges {
-            try context.save()
+            do {
+                try context.save()
+            } catch {
+                fatalError("Error while saving main context: \(error)")
+            }
         }
     }
     
@@ -111,4 +117,3 @@ extension CoreDataStack {
         }
     }
 }
-
