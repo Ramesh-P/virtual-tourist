@@ -118,10 +118,6 @@ class TravelLocationsMapViewController: UIViewController, UINavigationController
         
         super.didReceiveMemoryWarning()
     }
-}
-
-// MARK: TravelLocationsMapViewController+Extension
-private extension TravelLocationsMapViewController {
     
     // MARK: Class Functions
     func setMapTileOverlay() {
@@ -164,6 +160,10 @@ private extension TravelLocationsMapViewController {
             hint.text = "Tap and Hold to Drop Pin . Tap Pin to Add Photos"
         }
     }
+}
+
+// MARK: TravelLocationsMapViewController+Extension
+private extension TravelLocationsMapViewController {
     
     // MARK: Location Pins
     func fetchPins() {
