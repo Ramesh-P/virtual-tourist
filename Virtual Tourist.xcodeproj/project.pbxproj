@@ -28,6 +28,7 @@
 		CF518F5F1E5BE37400F6609B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF518F5D1E5BE37400F6609B /* Main.storyboard */; };
 		CF518F611E5BE37400F6609B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF518F601E5BE37400F6609B /* Assets.xcassets */; };
 		CF518F641E5BE37400F6609B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF518F621E5BE37400F6609B /* LaunchScreen.storyboard */; };
+		CF578B8D1E668FC600EB7723 /* TravelLocationsMapViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF578B8C1E668FC600EB7723 /* TravelLocationsMapViewController+Extension.swift */; };
 		CF6DEC0C1E628252007F7ACB /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6DEC0B1E628252007F7ACB /* Annotation.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		CF518F601E5BE37400F6609B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF518F631E5BE37400F6609B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF518F651E5BE37400F6609B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF578B8C1E668FC600EB7723 /* TravelLocationsMapViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TravelLocationsMapViewController+Extension.swift"; sourceTree = "<group>"; };
 		CF6DEC0B1E628252007F7ACB /* Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,6 +124,7 @@
 				CF4247F81E62646D004CF481 /* Preset+CoreDataClass.swift */,
 				CF4247F91E62646D004CF481 /* Preset+CoreDataProperties.swift */,
 				CF518F5B1E5BE37400F6609B /* TravelLocationsMapViewController.swift */,
+				CF578B8C1E668FC600EB7723 /* TravelLocationsMapViewController+Extension.swift */,
 				CF518F601E5BE37400F6609B /* Assets.xcassets */,
 				CF518F621E5BE37400F6609B /* LaunchScreen.storyboard */,
 				CF518F5D1E5BE37400F6609B /* Main.storyboard */,
@@ -216,6 +219,7 @@
 				CF0DF2021E5EB2AC006AD652 /* AppNavigationControllerDelegate.swift in Sources */,
 				CF6DEC0C1E628252007F7ACB /* Annotation.swift in Sources */,
 				CF4248011E62646D004CF481 /* Pin+CoreDataProperties.swift in Sources */,
+				CF578B8D1E668FC600EB7723 /* TravelLocationsMapViewController+Extension.swift in Sources */,
 				CF518F5C1E5BE37400F6609B /* TravelLocationsMapViewController.swift in Sources */,
 				CF4248031E62646D004CF481 /* Photo+CoreDataProperties.swift in Sources */,
 				CF4247E91E62596A004CF481 /* Model.xcdatamodeld in Sources */,
