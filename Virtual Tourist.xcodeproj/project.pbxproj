@@ -61,6 +61,7 @@
 		CF518F651E5BE37400F6609B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF578B8C1E668FC600EB7723 /* TravelLocationsMapViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TravelLocationsMapViewController+Extension.swift"; sourceTree = "<group>"; };
 		CF6DEC0B1E628252007F7ACB /* Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
+		CFC1AF391E69CE3A00EF7DFB /* Model-v1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model-v1.xcdatamodel"; sourceTree = "<group>"; };
 		CFEB4CBF1E67928A0054B289 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 		CFEB4CC11E685FC50054B289 /* FlickrAPIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrAPIConstants.swift; sourceTree = "<group>"; };
 		CFEB4CC31E685FDC0054B289 /* FlickrAPIMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrAPIMethods.swift; sourceTree = "<group>"; };
@@ -410,9 +411,10 @@
 		CF4247E71E62596A004CF481 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				CFC1AF391E69CE3A00EF7DFB /* Model-v1.xcdatamodel */,
 				CF4247E81E62596A004CF481 /* Model.xcdatamodel */,
 			);
-			currentVersion = CF4247E81E62596A004CF481 /* Model.xcdatamodel */;
+			currentVersion = CFC1AF391E69CE3A00EF7DFB /* Model-v1.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

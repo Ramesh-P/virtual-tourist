@@ -18,7 +18,7 @@ extension Pin {
 
     @NSManaged public var longitude: Double
     @NSManaged public var latitude: Double
-    @NSManaged public var photos: NSOrderedSet?
+    @NSManaged public var photos: NSSet?
 
 }
 
@@ -50,9 +50,9 @@ extension Pin {
     @NSManaged public func removeFromPhotos(_ value: Photo)
 
     @objc(addPhotos:)
-    @NSManaged public func addToPhotos(_ values: NSOrderedSet)
+    @NSManaged public func addToPhotos(_ values: NSSet)
 
     @objc(removePhotos:)
-    @NSManaged public func removeFromPhotos(_ values: NSOrderedSet)
+    @NSManaged public func removeFromPhotos(_ values: NSSet)
 
 }
