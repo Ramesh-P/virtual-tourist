@@ -81,8 +81,8 @@ extension TravelLocationsMapViewController {
             pin = Pin(latitude: (annotation?.locationCoordinate.latitude)!, longitude: (annotation?.locationCoordinate.longitude)!, context: appDelegate.stack.context)
             appDelegate.stack.saveContext()
             
-            // Download pictures for pin location
-            
+            // Download photos for pin location
+            searchPhotosFor(pin!)
         }
     }
     
@@ -98,6 +98,39 @@ extension TravelLocationsMapViewController {
         
         resetEdit()
     }
+    
+    // MARK: Photos
+    func searchPhotosFor(_ pin: Pin) {
+        
+        let latitude = pin.latitude
+        let longitude = pin.longitude
+        let photosLimit = Flickr.ParameterValues.photosLimit
+        
+        // Searech Flickr for photos at pin location
+        FlickrAPIMethods.sharedInstance().searchPhotoURLsForPinAt(latitude, longitude, photosLimit) { (success, error, result) in
+            
+            performUIUpdatesOnMain {
+                if success {
+                    self.savePhotoURLsFor(pin, from: result!)
+                } else {
+                    fatalError("Error downloading photos: \(error)")
+                }
+            }
+        }
+    }
+    
+    func savePhotoURLsFor(_ pin: Pin, from photos: [Photos]) {
+        
+        // Save photo urls and title for pin
+        print(pin)
+        print(photos)
+        
+    }
+    
+    
+    
+    
+    
     
     // MARK: Map Region
     func fetchRegion() {
