@@ -122,9 +122,15 @@ extension TravelLocationsMapViewController {
     func savePhotoURLsFor(_ pin: Pin, from photos: [Photos]) {
         
         // Save photo urls and title for pin
-        print(pin)
-        print(photos)
+        for photoContents in photos {
+            if (try? photoContents.url) != nil {
+                let image: NSData? = NSData()
+                let photo = Photo(image: image!, title: photoContents.title, url: photoContents.url, context: appDelegate.stack.context)
+                photo.pin = pin
+            }
+        }
         
+        appDelegate.stack.saveContext()
     }
     
     
