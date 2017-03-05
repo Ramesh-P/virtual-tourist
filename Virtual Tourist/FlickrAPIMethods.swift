@@ -154,7 +154,36 @@ class FlickrAPIMethods: NSObject {
     }
     
     // MARK: Convenience Functions
-    
+    func getPhotoImageDataFrom(_ url: String, completionHandlerForImageData: @escaping (_ success: Bool, _ error: String?, _ data: NSData?) -> Void) {
+        
+        let url = NSURL(string: url)
+        let request = URLRequest(url: url! as URL)
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+            
+            // Guard if there was an error
+            guard (error == nil) else {
+                completionHandlerForImageData(false, "There was an error with your request", nil)
+                return
+            }
+            
+            // Guard if response is not in success range
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+                completionHandlerForImageData(false, "Your request returned a status code other than 2xx", nil)
+                return
+            }
+            
+            // Guard if no data was returned
+            guard let data = data else {
+                completionHandlerForImageData(false, "No data was returned by the request", nil)
+                return
+            }
+            
+            completionHandlerForImageData(true, nil, data as NSData?)
+        }
+        
+        task.resume()
+    }    
 }
 
 // MARK: - FlickrAPIMethods+Extension
