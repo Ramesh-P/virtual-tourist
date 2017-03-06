@@ -116,6 +116,8 @@
                         <outlet property="hint" destination="ljI-Xw-PPe" id="ckI-pJ-aaq"/>
                         <outlet property="map" destination="Knj-7Q-844" id="tdg-KI-9DK"/>
                         <outlet property="pinAction" destination="OFT-X2-ziu" id="5QA-nn-TWe"/>
+                        <outletCollection property="barButtons" destination="91S-mc-mgn" collectionClass="NSMutableArray" id="trg-r9-dyY"/>
+                        <outletCollection property="barButtons" destination="oGL-13-FKR" collectionClass="NSMutableArray" id="M0V-uC-zgu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -125,7 +127,7 @@
         <!--Photo Album View Controller-->
         <scene sceneID="TE2-DJ-SN3">
             <objects>
-                <viewController id="zW3-Wu-lHP" customClass="PhotoAlbumViewController" customModule="Virtual_Tourist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PhotoAlbumViewController" id="zW3-Wu-lHP" customClass="PhotoAlbumViewController" customModule="Virtual_Tourist" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2rN-hA-9V0"/>
                         <viewControllerLayoutGuide type="bottom" id="gKa-J9-V2H"/>
@@ -135,7 +137,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="GiX-Dm-OLh"/>
+                    <navigationItem key="navigationItem" id="GiX-Dm-OLh">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="7Hy-rc-Gt7"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OtM-nD-luG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

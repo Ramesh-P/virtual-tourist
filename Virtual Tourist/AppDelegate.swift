@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var bannerImage: String = String()
+    var barButtonFontSize: CGFloat = CGFloat()
+    var labelFontSize: CGFloat = CGFloat()
     var latitudeDelta: CLLocationDegrees = CLLocationDegrees()
     var longitudeDelta: CLLocationDegrees = CLLocationDegrees()
     let stack = CoreDataStack(modelName: "Model")!
@@ -66,9 +68,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let screenHeight = UIScreen.main.bounds.size.height
         
         // Set UI object appearance
-        var barButtonFontSize: CGFloat = CGFloat()
-        var labelFontSize: CGFloat = CGFloat()
-        
         switch screenHeight {
         case Constants.ScreenHeight.phoneSE:
             barButtonFontSize = Constants.FontSize.BarButton.phoneSE

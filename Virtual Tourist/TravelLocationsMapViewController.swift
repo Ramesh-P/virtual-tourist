@@ -58,6 +58,7 @@ class TravelLocationsMapViewController: UIViewController, UINavigationController
     @IBOutlet weak var banner: UIImageView!
     @IBOutlet weak var hint: UILabel!
     @IBOutlet weak var pinAction: UIBarButtonItem!
+    @IBOutlet var barButtons: [UIBarButtonItem]!
     
     // MARK: Actions
     @IBAction func deletePin(_ sender: UIBarButtonItem) {
@@ -93,25 +94,28 @@ class TravelLocationsMapViewController: UIViewController, UINavigationController
         super.viewDidLoad()
         
         // Initialize
+        canLoadPins = true
+        canDeletePins = false
+        isEditingPins = false
         navigationControllerDelegate.setAppTitleImage(self)
         banner.image = UIImage(named: appDelegate.bannerImage)
+        
+        // Layout
         setMapTileOverlay()
         addGestureReconizer()
+        displayEditStatus()
+        fetchRegion()
+        fetchPins()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
         
-        // Initialize
-        canLoadPins = true
-        canDeletePins = false
-        isEditingPins = false
-        
         // Layout
-        displayEditStatus()
-        fetchRegion()
-        fetchPins()
+        for barButton in barButtons {
+            barButton.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Lato-Bold", size: appDelegate.barButtonFontSize) as Any], for: .normal)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -222,8 +226,12 @@ extension TravelLocationsMapViewController: MKMapViewDelegate {
                     map.removeAnnotation(view.annotation!)
                     
                     fetchPins()
-                } else if (canLoadPins) {
+                } else if (!isEditingPins) {
                     
+                    // Show photos from selected pin location
+                    let controller = self.storyboard!.instantiateViewController(withIdentifier: "PhotoAlbumViewController") as! PhotoAlbumViewController
+                    controller.pin = (view.annotation as! Annotation).pin
+                    navigationController?.pushViewController(controller, animated: true)
                 }
             }
         }

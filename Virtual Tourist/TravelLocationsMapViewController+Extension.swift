@@ -52,6 +52,7 @@ extension TravelLocationsMapViewController {
             annotations.append(annotation!)
         }
         
+        map.removeAnnotations(annotations)
         map.addAnnotations(annotations)
     }
     
