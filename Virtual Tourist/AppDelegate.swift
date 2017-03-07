@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var bannerImage: String = String()
+    var leftMargin: CGFloat = CGFloat()
     var barButtonFontSize: CGFloat = CGFloat()
     var labelFontSize: CGFloat = CGFloat()
     var latitudeDelta: CLLocationDegrees = CLLocationDegrees()
@@ -32,6 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Hide toolbar border
         UIToolbar.appearance().clipsToBounds = true
+        
+        // Hide navigation bar back button image
+        UINavigationBar.appearance().backIndicatorImage = UIImage()
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage()
         
         // Set UI object defaults
         setDefaults()
@@ -70,18 +75,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Set UI object appearance
         switch screenHeight {
         case Constants.ScreenHeight.phoneSE:
+            leftMargin = Constants.LeftMargin.phoneSE
             barButtonFontSize = Constants.FontSize.BarButton.phoneSE
             labelFontSize = Constants.FontSize.Label.phoneSE
             bannerImage = "BannerImage-568h"
             latitudeDelta = Constants.DefaultSpan.LatitudeDelta.phoneSE
             longitudeDelta = Constants.DefaultSpan.LongitudeDelta.phoneSE
         case Constants.ScreenHeight.phone:
+            leftMargin = Constants.LeftMargin.phone
             barButtonFontSize = Constants.FontSize.BarButton.phone
             labelFontSize = Constants.FontSize.Label.phone
             bannerImage = "BannerImage"
             latitudeDelta = Constants.DefaultSpan.LatitudeDelta.phone
             longitudeDelta = Constants.DefaultSpan.LongitudeDelta.phone
         case Constants.ScreenHeight.phonePlus:
+            leftMargin = Constants.LeftMargin.phonePlus
             barButtonFontSize = Constants.FontSize.BarButton.phonePlus
             labelFontSize = Constants.FontSize.Label.phonePlus
             bannerImage = "BannerImage"
@@ -91,6 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             break
         }
         
+        UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffsetMake(leftMargin, 0), for: UIBarMetrics.default)
         UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Lato-Bold", size: barButtonFontSize) as Any], for: .normal)
         UILabel.appearance().font = UIFont(name: "SFUIText-Semibold", size: labelFontSize)
     }

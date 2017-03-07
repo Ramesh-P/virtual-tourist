@@ -35,6 +35,13 @@ struct Constants {
         }
     }
     
+    // MARK: Left Margin
+    struct LeftMargin {
+        static let phoneSE: CGFloat = -16.0
+        static let phone: CGFloat = -10.0
+        static let phonePlus: CGFloat = -10.0
+    }
+    
     // MARK: Map Overlay
     struct MapOverlay {
         static let openStreetMapCarto = "http://a.tile.openstreetmap.org/{z}/{x}/{y}.png"
