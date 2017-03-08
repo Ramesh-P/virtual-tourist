@@ -249,7 +249,11 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="cey-Rr-LcC"/>
-                                    <barButtonItem title="ADD NEW COLLECTION" id="dlC-yL-I3d" userLabel="Add New Photos"/>
+                                    <barButtonItem title="ADD NEW COLLECTION" id="dlC-yL-I3d" userLabel="Add New Photos">
+                                        <connections>
+                                            <action selector="addNewPhotoCollection:" destination="zW3-Wu-lHP" id="18w-8F-Yih"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Waf-xJ-FF4"/>
                                 </items>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -263,7 +267,11 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="9wX-XJ-DqB"/>
-                                    <barButtonItem title="DELETE SELECTED PICTURES" id="czZ-Dz-lli" userLabel="Delete Photos"/>
+                                    <barButtonItem title="DELETE SELECTED PICTURES" id="czZ-Dz-lli" userLabel="Delete Photos">
+                                        <connections>
+                                            <action selector="deleteSelectedPhotos:" destination="zW3-Wu-lHP" id="AIw-hI-zcm"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="jnt-l8-R3K"/>
                                 </items>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -297,8 +305,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="GiX-Dm-OLh">
-                        <barButtonItem key="rightBarButtonItem" title="EDIT" id="7Hy-rc-Gt7" userLabel="Delete Photo"/>
+                        <barButtonItem key="rightBarButtonItem" title="EDIT" id="7Hy-rc-Gt7" userLabel="Edit Photos">
+                            <connections>
+                                <action selector="editPhotos:" destination="zW3-Wu-lHP" id="3LP-dX-uCs"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addNewPhotos" destination="dlC-yL-I3d" id="4ng-5M-6XD"/>
+                        <outlet property="album" destination="QlS-zK-czp" id="vEO-Sf-vZc"/>
+                        <outlet property="banner" destination="hJj-UM-M8U" id="XPM-kp-yCs"/>
+                        <outlet property="deletePhotos" destination="czZ-Dz-lli" id="94d-tw-cug"/>
+                        <outlet property="hint" destination="84j-pr-wod" id="dEO-Mu-dCr"/>
+                        <outlet property="photoAction" destination="7Hy-rc-Gt7" id="CFe-p7-jLt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OtM-nD-luG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
