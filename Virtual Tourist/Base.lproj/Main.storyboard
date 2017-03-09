@@ -224,6 +224,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="zW3-Wu-lHP" id="0DG-qb-koh"/>
+                                    <outlet property="delegate" destination="zW3-Wu-lHP" id="nuX-Te-YBH"/>
+                                </connections>
                             </collectionView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hJj-UM-M8U" userLabel="Banner">
                                 <rect key="frame" x="0.0" y="564" width="414" height="64"/>
@@ -330,7 +334,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dwc-O4-U8s" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="dcD-KY-HcT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="dcD-KY-HcT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -356,7 +360,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6hQ-Mz-fjl" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="G2v-cB-EAe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="G2v-cB-EAe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
