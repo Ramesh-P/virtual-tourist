@@ -46,12 +46,9 @@ class TravelLocationsMapViewController: UIViewController, UINavigationController
     var annotation: Annotation?
     var preset: Preset?
     var pin: Pin?
-    
     var canLoadPins: Bool = Bool()
     var canDeletePins: Bool = Bool()
     var isEditingPins: Bool = Bool()
-    
-    var isDownloadingPhotos: Bool = Bool()
     
     // MARK: Outlets
     @IBOutlet weak var map: MKMapView!
@@ -230,7 +227,7 @@ extension TravelLocationsMapViewController: MKMapViewDelegate {
                     
                     // Show photos from selected pin location
                     let controller = self.storyboard!.instantiateViewController(withIdentifier: "PhotoAlbumViewController") as! PhotoAlbumViewController
-                    controller.pin = (view.annotation as! Annotation).pin
+                    controller.pin = pin as? Pin
                     navigationController?.pushViewController(controller, animated: true)
                 }
             }

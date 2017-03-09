@@ -30,6 +30,7 @@
 		CF518F611E5BE37400F6609B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF518F601E5BE37400F6609B /* Assets.xcassets */; };
 		CF518F641E5BE37400F6609B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF518F621E5BE37400F6609B /* LaunchScreen.storyboard */; };
 		CF578B8D1E668FC600EB7723 /* TravelLocationsMapViewController+Pins.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF578B8C1E668FC600EB7723 /* TravelLocationsMapViewController+Pins.swift */; };
+		CF5AC3CD1E70A27500803FC0 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5AC3CC1E70A27500803FC0 /* Cell.swift */; };
 		CF6DEC0C1E628252007F7ACB /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6DEC0B1E628252007F7ACB /* Annotation.swift */; };
 		CFCF47241E6F93F900627E47 /* TravelLocationsMapViewController+Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCF47231E6F93F900627E47 /* TravelLocationsMapViewController+Photos.swift */; };
 		CFCF47261E6F940D00627E47 /* TravelLocationsMapViewController+Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCF47251E6F940D00627E47 /* TravelLocationsMapViewController+Region.swift */; };
@@ -65,6 +66,7 @@
 		CF518F631E5BE37400F6609B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF518F651E5BE37400F6609B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF578B8C1E668FC600EB7723 /* TravelLocationsMapViewController+Pins.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TravelLocationsMapViewController+Pins.swift"; sourceTree = "<group>"; };
+		CF5AC3CC1E70A27500803FC0 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		CF6DEC0B1E628252007F7ACB /* Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 		CFC1AF391E69CE3A00EF7DFB /* Model-v1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model-v1.xcdatamodel"; sourceTree = "<group>"; };
 		CFCF47231E6F93F900627E47 /* TravelLocationsMapViewController+Photos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TravelLocationsMapViewController+Photos.swift"; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			children = (
 				CF6DEC0B1E628252007F7ACB /* Annotation.swift */,
 				CF0DF2011E5EB2AC006AD652 /* AppNavigationControllerDelegate.swift */,
+				CF5AC3CC1E70A27500803FC0 /* Cell.swift */,
 				CFF451831E6B7686001C7BD9 /* Photos.swift */,
 			);
 			name = "MVC (View)";
@@ -286,6 +289,7 @@
 				CF4247EB1E62606E004CF481 /* CoreDataStack.swift in Sources */,
 				CF4247FE1E62646D004CF481 /* Preset+CoreDataClass.swift in Sources */,
 				CF518F5A1E5BE37400F6609B /* AppDelegate.swift in Sources */,
+				CF5AC3CD1E70A27500803FC0 /* Cell.swift in Sources */,
 				CFCF47261E6F940D00627E47 /* TravelLocationsMapViewController+Region.swift in Sources */,
 				CF0DF2001E5EB20D006AD652 /* Constants.swift in Sources */,
 			);
