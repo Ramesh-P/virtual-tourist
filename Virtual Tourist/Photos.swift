@@ -21,7 +21,7 @@ struct Photos {
         if let stringTitle = dictionary[Flickr.ResponseKeys.title] as? String {
             title = stringTitle
         } else {
-            title = "Untitled"
+            title = String()
         }
         
         if let stringURL = dictionary[Flickr.ResponseKeys.mediumURL] as? String {

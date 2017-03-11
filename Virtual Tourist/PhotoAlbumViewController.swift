@@ -19,6 +19,7 @@ class PhotoAlbumViewController: UIViewController {
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>?
     var insertIndexPath: [NSIndexPath]?
     var deleteIndexPath: [NSIndexPath]?
+    var selectedCells = [IndexPath]()
     var pin: Pin?
     var photoCollection = [Photo]()
     var address: String = String()
@@ -40,6 +41,7 @@ class PhotoAlbumViewController: UIViewController {
         
         setActions()
         displayEditStatus()
+        resetSelectedCells()
     }
     
     @IBAction func addNewPhotoCollection(_ sender: UIBarButtonItem) {
@@ -48,15 +50,8 @@ class PhotoAlbumViewController: UIViewController {
     
     @IBAction func deleteSelectedPhotos(_ sender: UIBarButtonItem) {
         
-        // Reset edit
-        isEditingPhotos = false
-        
-        setActions()
-        displayEditStatus()
-        
-        // Delete selected photos
-        
-        
+        // Delete selected photos & reset album
+        deleteSelectedPhotos()
     }
     
     // MARK: Overrides
@@ -70,10 +65,11 @@ class PhotoAlbumViewController: UIViewController {
         fetchedResultsController?.delegate = self
         
         // Layout
-        getGeoLocation()
-        setActions()
-        initializeLayout()
         fetchPhotos()
+        getGeoLocation()
+        initializeLayout()
+        setActions()
+        displayEditStatus()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -128,7 +124,12 @@ class PhotoAlbumViewController: UIViewController {
             hint.text = "Select Pictures to Delete"
         } else {
             photoAction.title = "EDIT"
-            hint.text = (address != "") ? address : "Unknown Location"
+            
+            if (photoCollection.count == 0) {
+                hint.text = "All pictures are deleted. Add a new collection"
+            } else {
+                hint.text = (address != "") ? address : "Unknown Location"
+            }
         }
     }
     
@@ -141,6 +142,45 @@ class PhotoAlbumViewController: UIViewController {
         
         size = UIScreen.main.bounds.size.width / itemsPerRow
         flowLayout?.itemSize = CGSize(width: size, height: size + 64)
+    }
+    
+    func setSelected(_ cell: Cell, at indexPath: IndexPath) {
+        
+        // Not allowed to select photos if not in edit mode
+        if (!isEditingPhotos) {
+            return
+        }
+        
+        // Set cell selection
+        if let index = selectedCells.index(of: indexPath) {
+            selectedCells.remove(at: index)
+        } else {
+            selectedCells.append(indexPath)
+        }
+        
+        highlightSelected(cell, at: indexPath)
+    }
+    
+    func resetSelectedCells() {
+        
+        // Not allowed to reset selection if in edit mode
+        if (isEditingPhotos) {
+            return
+        }
+        
+        // Reset selected cells
+        selectedCells.removeAll()
+        album.reloadData()
+    }
+    
+    func highlightSelected(_ cell: Cell, at indexPath: IndexPath) {
+        
+        // Toggle cell selection visualization
+        if let _ = selectedCells.index(of: indexPath) {
+            cell.alpha = 0.375
+        } else {
+            cell.alpha = 1.0
+        }
     }
 }
 
@@ -157,7 +197,6 @@ extension PhotoAlbumViewController: NSFetchedResultsControllerDelegate {
         return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.stack.context, sectionNameKeyPath: nil, cacheName: nil)
     }
     
-    //func fetchPhotos() -> [Photo] {
     func fetchPhotos() {
         
         // Fetch location photos from data store
@@ -207,15 +246,7 @@ extension PhotoAlbumViewController: UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 21
-        
-        /*
-        if let fetchedResultsController = fetchedResultsController {
-            return fetchedResultsController.sections![section].numberOfObjects
-        } else {
-            return 0
-        }
- */
+        return photoCollection.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -223,14 +254,32 @@ extension PhotoAlbumViewController: UICollectionViewDataSource, UICollectionView
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! Cell
         let picture = fetchedResultsController?.object(at: indexPath) as! Photo
         
+        // Display location image and title
         if (picture.image == nil) {
+            
+            /*
+            cell.indicator.startAnimating()
+            cell.thumbnail.image = UIImage(named: "Blank")
+            cell.title.text = "Loading..."
+ */
             
         } else {
             cell.thumbnail.image = UIImage(data: picture.image as! Data)
-            cell.title.text = picture.title
+            cell.title.text = (picture.title != "") ? picture.title : "Untitled"
         }
         
+        // Highlight selected cells
+        highlightSelected(cell, at: indexPath)
+        
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        // Add or remove the highlighted cells to the list
+        let cell = collectionView.cellForItem(at: indexPath) as! Cell
+        
+        setSelected(cell, at: indexPath)
     }
 }
 
@@ -238,6 +287,43 @@ extension PhotoAlbumViewController: UICollectionViewDataSource, UICollectionView
 extension PhotoAlbumViewController {
     
     // MARK: Photos
-    
+    func deleteSelectedPhotos() {
+        
+        var selectedPhotos = [Photo]()
+        selectedCells = selectedCells.sorted(by: {$0.row > $1.row})
+        
+        // Delete selected photos and perform batch update
+        album.performBatchUpdates({
+            
+            // Delete photos from album
+            for indexPath in self.selectedCells {
+                self.album.deleteItems(at: [indexPath])
+                self.photoCollection.remove(at: indexPath.row)
+            }
+            
+            // Delete photos from data store
+            for indexPath in self.selectedCells {
+                selectedPhotos.append(self.fetchedResultsController?.object(at: indexPath as IndexPath) as! Photo)
+            }
+            
+            for photo in selectedPhotos {
+                self.appDelegate.stack.context.delete(photo)
+            }
+            
+            self.appDelegate.stack.saveContext()
+        }) {(completion) in
+            
+            // Fetch remaining photos from the data store
+            self.photoCollection.removeAll()
+            self.fetchPhotos()
+            
+            // Reset
+            self.isEditingPhotos = false
+            
+            self.setActions()
+            self.displayEditStatus()
+            self.resetSelectedCells()
+        }
+    }
 }
 
