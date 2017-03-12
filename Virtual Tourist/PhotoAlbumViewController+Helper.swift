@@ -77,6 +77,10 @@ extension PhotoAlbumViewController {
         }
     }
     
+    
+    
+    
+    
     // MARK: Class Helpers
     func initializeLayout() {
         
@@ -93,7 +97,7 @@ extension PhotoAlbumViewController {
         
         // Toggle user actions
         deletePhotos.isEnabled = isEditingPhotos
-        addNewPhotos.isEnabled = !isEditingPhotos
+        addNewPhotos.isEnabled = (isLoadingPhotos) ? false : !isEditingPhotos
     }
     
     func displayEditStatus() {
@@ -111,6 +115,21 @@ extension PhotoAlbumViewController {
                 hint.text = (address != "") ? address : "Unknown Location"
             }
         }
+    }
+    
+    func prepareForDownloadingPhotos() {
+        
+        // Prepare user interface for download
+        if (isLoadingPhotos) {
+            addNewPhotos.isEnabled = false
+            photoAction.isEnabled = false
+            album.reloadData()
+        }
+        
+        
+        
+        
+        
     }
 }
 

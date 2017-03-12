@@ -55,5 +55,23 @@ extension PhotoAlbumViewController {
             self.resetSelectedCells()
         }
     }
+    
+    func deleteAllPhotos() {
+        
+        // Delete all photos for the pin from data store
+        for photo in photoCollection {
+            appDelegate.stack.context.delete(photo)
+        }
+
+        appDelegate.stack.saveContext()
+        
+        // Reset
+        photoCollection.removeAll()
+    }
+    
+    
+    
+    
+    
 }
 

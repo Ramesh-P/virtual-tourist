@@ -20,8 +20,10 @@ class PhotoAlbumViewController: UIViewController {
     var selectedCells = [IndexPath]()
     var pin: Pin?
     var photoCollection = [Photo]()
+    var photosLimit: Int = Int()
     var address: String = String()
     var isEditingPhotos: Bool = Bool()
+    var isLoadingPhotos: Bool = Bool()
     
     // MARK: Outlets
     @IBOutlet weak var album: UICollectionView!
@@ -44,6 +46,16 @@ class PhotoAlbumViewController: UIViewController {
     
     @IBAction func addNewPhotoCollection(_ sender: UIBarButtonItem) {
         
+        // Initialize
+        isLoadingPhotos = true
+        
+        prepareForDownloadingPhotos()
+        deleteAllPhotos()
+        
+        
+        
+        
+        
     }
     
     @IBAction func deleteSelectedPhotos(_ sender: UIBarButtonItem) {
@@ -64,6 +76,8 @@ class PhotoAlbumViewController: UIViewController {
         
         // Layout
         fetchPhotos()
+        isLoadingPhotos = (photoCollection.count == 0) ? true : false
+        prepareForDownloadingPhotos()        
         getGeoLocation()
         initializeLayout()
         setActions()
@@ -82,14 +96,8 @@ class PhotoAlbumViewController: UIViewController {
         
         super.viewDidAppear(animated)
         
-        // Get new or display existing photos for the location
-        if (photoCollection.count == 0) {
-            
-            print("download images...")
-            
-        } else {
-            album.reloadData()
-        }
+        // Layout
+        album.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -132,20 +140,35 @@ extension PhotoAlbumViewController: UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return photoCollection.count
+        if (isLoadingPhotos) {
+            photosLimit = Int(Flickr.ParameterValues.photosLimit)!
+        } else {
+            photosLimit = photoCollection.count
+        }
+        
+        return photosLimit
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! Cell
-        let picture = fetchedResultsController?.object(at: indexPath) as! Photo
         
-        // Display location image and title
-        if (picture.image != nil) {
-            cell.thumbnail.image = UIImage(data: picture.image as! Data)
-            cell.title.text = (picture.title != "") ? picture.title : "Untitled"
+        cell.thumbnail.image = UIImage(named: "Blank")
+        cell.title.text = "Untitled"
+        cell.indicator.startAnimating()
+        
+        if (isLoadingPhotos) {
+            
+        } else {
+            let picture = fetchedResultsController?.object(at: indexPath) as! Photo
+            
+            if (picture.image != nil) {
+                cell.thumbnail.image = UIImage(data: picture.image as! Data)
+                cell.title.text = (picture.title != "") ? picture.title : "Untitled"
+                cell.indicator.stopAnimating()
+            }
         }
-        
+
         // Highlight selected cells
         highlightSelected(cell, at: indexPath)
         

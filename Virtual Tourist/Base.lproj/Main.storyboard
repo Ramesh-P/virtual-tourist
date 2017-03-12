@@ -165,7 +165,7 @@
                                                                 <constraint firstAttribute="width" secondItem="P1z-An-LvH" secondAttribute="height" multiplier="1:1" id="APu-IU-fwa"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Cir-nf-JHJ" userLabel="Activity Indicator">
+                                                        <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Cir-nf-JHJ" userLabel="Activity Indicator">
                                                             <rect key="frame" x="78" y="78" width="37" height="37"/>
                                                             <color key="color" red="0.76078431372549016" green="0.78431372549019607" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                         </activityIndicatorView>
