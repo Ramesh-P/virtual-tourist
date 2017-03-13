@@ -77,9 +77,23 @@ extension PhotoAlbumViewController {
         }
     }
     
+    func prepareForDownloadingPhotos() {
+        
+        // Prepare user interface for download
+        addNewPhotos.isEnabled = false
+        photoAction.isEnabled = false
+        hint.text = (address != "") ? address : "Unknown Location"
+        album.reloadData()
+    }
     
-    
-    
+    func resetAfterDownloadingPhotos() {
+        
+        // Reset user interface after download
+        addNewPhotos.isEnabled = true
+        photoAction.isEnabled = true
+        hint.text = (address != "") ? address : "Unknown Location"
+        album.reloadData()
+    }
     
     // MARK: Class Helpers
     func initializeLayout() {
@@ -115,21 +129,6 @@ extension PhotoAlbumViewController {
                 hint.text = (address != "") ? address : "Unknown Location"
             }
         }
-    }
-    
-    func prepareForDownloadingPhotos() {
-        
-        // Prepare user interface for download
-        if (isLoadingPhotos) {
-            addNewPhotos.isEnabled = false
-            photoAction.isEnabled = false
-            album.reloadData()
-        }
-        
-        
-        
-        
-        
     }
 }
 

@@ -51,11 +51,7 @@ class PhotoAlbumViewController: UIViewController {
         
         prepareForDownloadingPhotos()
         deleteAllPhotos()
-        
-        
-        
-        
-        
+        downloadPhotosFor(pin!)
     }
     
     @IBAction func deleteSelectedPhotos(_ sender: UIBarButtonItem) {
@@ -72,16 +68,20 @@ class PhotoAlbumViewController: UIViewController {
         // Initialize
         isEditingPhotos = false
         banner.image = UIImage(named: appDelegate.bannerImage)
-        fetchedResultsController?.delegate = self
         
         // Layout
         fetchPhotos()
         isLoadingPhotos = (photoCollection.count == 0) ? true : false
-        prepareForDownloadingPhotos()        
         getGeoLocation()
         initializeLayout()
         setActions()
         displayEditStatus()
+        
+        // If empty, then download new set of photos
+        if (isLoadingPhotos) {
+            prepareForDownloadingPhotos()
+            downloadPhotosFor(pin!)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -116,7 +116,10 @@ extension PhotoAlbumViewController: NSFetchedResultsControllerDelegate {
         fetchRequest.sortDescriptors = []
         fetchRequest.predicate = NSPredicate(format: "pin == %@", argumentArray: [pin!])
         
-        return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.stack.context, sectionNameKeyPath: nil, cacheName: nil)
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.stack.context, sectionNameKeyPath: nil, cacheName: nil)
+        //fetchedResultsController.delegate = self
+        
+        return fetchedResultsController
     }
     
     func fetchPhotos() {
@@ -127,6 +130,7 @@ extension PhotoAlbumViewController: NSFetchedResultsControllerDelegate {
         do {
             try fetchedResultsController?.performFetch()
             if let results = fetchedResultsController?.fetchedObjects as? [Photo] {
+                photoCollection.removeAll()
                 photoCollection = results
             }
         } catch {
@@ -140,6 +144,7 @@ extension PhotoAlbumViewController: UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
+        // Set number of photos to display
         if (isLoadingPhotos) {
             photosLimit = Int(Flickr.ParameterValues.photosLimit)!
         } else {
@@ -153,13 +158,13 @@ extension PhotoAlbumViewController: UICollectionViewDataSource, UICollectionView
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! Cell
         
+        // Initialize
         cell.thumbnail.image = UIImage(named: "Blank")
         cell.title.text = "Untitled"
         cell.indicator.startAnimating()
         
-        if (isLoadingPhotos) {
-            
-        } else {
+        // Display photo and title
+        if (!isLoadingPhotos) {
             let picture = fetchedResultsController?.object(at: indexPath) as! Photo
             
             if (picture.image != nil) {

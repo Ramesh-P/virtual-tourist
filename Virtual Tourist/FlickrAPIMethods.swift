@@ -145,7 +145,7 @@ class FlickrAPIMethods: NSObject {
                     let photoCollection = Photos.addToCollectionFrom(photosArray)
                     completionHandlerForPhotoSearch(true, nil, photoCollection)
                 } else {
-                    completionHandlerForPhotoSearch(false, "No photos Found. Search again", nil)
+                    completionHandlerForPhotoSearch(false, "No photos Found on this Location", nil)
                 }
             } else {
                 completionHandlerForPhotoSearch(false, "Error downloading photos", nil)
