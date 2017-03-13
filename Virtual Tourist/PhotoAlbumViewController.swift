@@ -24,6 +24,7 @@ class PhotoAlbumViewController: UIViewController {
     var address: String = String()
     var isEditingPhotos: Bool = Bool()
     var isLoadingPhotos: Bool = Bool()
+    static var hasPhotos: Bool = Bool()
     
     // MARK: Outlets
     @IBOutlet weak var album: UICollectionView!
@@ -134,7 +135,7 @@ extension PhotoAlbumViewController: NSFetchedResultsControllerDelegate {
                 photoCollection = results
             }
         } catch {
-            fatalError("Could not fetch photos: \(error)")
+            displayError("Could not fetch photos")
         }
     }
 }
@@ -161,7 +162,10 @@ extension PhotoAlbumViewController: UICollectionViewDataSource, UICollectionView
         // Initialize
         cell.thumbnail.image = UIImage(named: "Blank")
         cell.title.text = "Untitled"
-        cell.indicator.startAnimating()
+        
+        if (PhotoAlbumViewController.hasPhotos) {
+            cell.indicator.startAnimating()
+        }
         
         // Display photo and title
         if (!isLoadingPhotos) {
@@ -173,7 +177,7 @@ extension PhotoAlbumViewController: UICollectionViewDataSource, UICollectionView
                 cell.indicator.stopAnimating()
             }
         }
-
+        
         // Highlight selected cells
         highlightSelected(cell, at: indexPath)
         

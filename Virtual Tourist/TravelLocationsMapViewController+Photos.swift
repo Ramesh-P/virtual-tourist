@@ -29,7 +29,7 @@ extension TravelLocationsMapViewController {
                 if success {
                     self.savePhotoURLsFor(pin, from: result!)
                 } else {
-                    fatalError("Error downloading photos: \(error)")
+                    self.displayError("Error downloading photos")
                 }
             }
         }
@@ -78,7 +78,7 @@ extension TravelLocationsMapViewController {
                 }
             }
         } catch {
-            fatalError("Could not fetch photos: \(error)")
+            displayError("Could not fetch photos")
         }
     }
 }

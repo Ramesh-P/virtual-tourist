@@ -23,7 +23,8 @@ extension PhotoAlbumViewController {
             
             // Guard if no location was returned
             guard (error == nil) else {
-                fatalError("Could not find location: \(error)")
+                self.displayError("Could not find location")
+                return
             }
             
             // Get location address
@@ -129,6 +130,14 @@ extension PhotoAlbumViewController {
                 hint.text = (address != "") ? address : "Unknown Location"
             }
         }
+    }
+    
+    func displayError(_ message: String?) {
+        
+        // Display Error
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

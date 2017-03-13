@@ -35,6 +35,7 @@
 		CF578B8D1E668FC600EB7723 /* TravelLocationsMapViewController+Pins.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF578B8C1E668FC600EB7723 /* TravelLocationsMapViewController+Pins.swift */; };
 		CF5AC3CD1E70A27500803FC0 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5AC3CC1E70A27500803FC0 /* Cell.swift */; };
 		CF6DEC0C1E628252007F7ACB /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6DEC0B1E628252007F7ACB /* Annotation.swift */; };
+		CFA953111E7761E40036B2D2 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = CFA953101E7761E40036B2D2 /* Credits.rtf */; };
 		CFCF47241E6F93F900627E47 /* TravelLocationsMapViewController+Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCF47231E6F93F900627E47 /* TravelLocationsMapViewController+Photos.swift */; };
 		CFCF47261E6F940D00627E47 /* TravelLocationsMapViewController+Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCF47251E6F940D00627E47 /* TravelLocationsMapViewController+Region.swift */; };
 		CFEB4CC01E67928A0054B289 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEB4CBF1E67928A0054B289 /* GCDBlackBox.swift */; };
@@ -74,6 +75,7 @@
 		CF578B8C1E668FC600EB7723 /* TravelLocationsMapViewController+Pins.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TravelLocationsMapViewController+Pins.swift"; sourceTree = "<group>"; };
 		CF5AC3CC1E70A27500803FC0 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		CF6DEC0B1E628252007F7ACB /* Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
+		CFA953101E7761E40036B2D2 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		CFC1AF391E69CE3A00EF7DFB /* Model-v1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model-v1.xcdatamodel"; sourceTree = "<group>"; };
 		CFCF47231E6F93F900627E47 /* TravelLocationsMapViewController+Photos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TravelLocationsMapViewController+Photos.swift"; sourceTree = "<group>"; };
 		CFCF47251E6F940D00627E47 /* TravelLocationsMapViewController+Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TravelLocationsMapViewController+Region.swift"; sourceTree = "<group>"; };
@@ -134,12 +136,13 @@
 		CF518F581E5BE37400F6609B /* Virtual Tourist */ = {
 			isa = PBXGroup;
 			children = (
+				CF518F651E5BE37400F6609B /* Info.plist */,
+				CFA953101E7761E40036B2D2 /* Credits.rtf */,
+				CF518F591E5BE37400F6609B /* AppDelegate.swift */,
 				CFCF472A1E6F955900627E47 /* Assets */,
 				CFCF47291E6F954E00627E47 /* MVC (Model) */,
 				CFCF47281E6F954100627E47 /* MVC (View) */,
 				CFCF47271E6F953200627E47 /* MVC (Controller) */,
-				CF518F591E5BE37400F6609B /* AppDelegate.swift */,
-				CF518F651E5BE37400F6609B /* Info.plist */,
 				CF0DF1F11E5E80DA006AD652 /* Supporting Files */,
 			);
 			path = "Virtual Tourist";
@@ -265,6 +268,7 @@
 				CF0DF1FD1E5E8221006AD652 /* SF-UI-Text-Regular.otf in Resources */,
 				CF0DF1FA1E5E8221006AD652 /* Lato-Bold.ttf in Resources */,
 				CF518F641E5BE37400F6609B /* LaunchScreen.storyboard in Resources */,
+				CFA953111E7761E40036B2D2 /* Credits.rtf in Resources */,
 				CF518F611E5BE37400F6609B /* Assets.xcassets in Resources */,
 				CF0DF1FE1E5E8221006AD652 /* SF-UI-Text-Semibold.otf in Resources */,
 				CF0DF1FC1E5E8221006AD652 /* SF-UI-Text-Medium.otf in Resources */,

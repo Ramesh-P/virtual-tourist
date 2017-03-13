@@ -56,5 +56,13 @@ extension TravelLocationsMapViewController {
             hint.text = "Tap and Hold to Drop Pin . Tap Pin to Add Photos"
         }
     }
+    
+    func displayError(_ message: String?) {
+        
+        // Display Error
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 

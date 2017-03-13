@@ -142,10 +142,12 @@ class FlickrAPIMethods: NSObject {
             // Get URL and title from the result
             if success {
                 if (photosArray.count > 0) {
+                    PhotoAlbumViewController.hasPhotos = true                    
                     let photoCollection = Photos.addToCollectionFrom(photosArray)
                     completionHandlerForPhotoSearch(true, nil, photoCollection)
                 } else {
-                    completionHandlerForPhotoSearch(false, "No photos Found on this Location", nil)
+                    PhotoAlbumViewController.hasPhotos = false
+                    completionHandlerForPhotoSearch(false, "No photos found on this location", nil)
                 }
             } else {
                 completionHandlerForPhotoSearch(false, "Error downloading photos", nil)

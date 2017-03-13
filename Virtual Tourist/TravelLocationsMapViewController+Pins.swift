@@ -38,7 +38,7 @@ extension TravelLocationsMapViewController {
                 }
             }
         } catch {
-            fatalError("Could not fetch pins: \(error)")
+            displayError("Could not fetch pins")
         }
     }
     

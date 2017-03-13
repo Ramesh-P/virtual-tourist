@@ -17,6 +17,9 @@ extension PhotoAlbumViewController {
     // MARK: Photos
     func downloadPhotosFor(_ pin: Pin) {
         
+        // Initialize
+        PhotoAlbumViewController.hasPhotos = true
+        
         // Chain completion handlers for each request so that they run one after the other
         self.searchPhotosFor(pin) { (success, error, result) in
             if success {
@@ -36,15 +39,15 @@ extension PhotoAlbumViewController {
                                     self.resetAfterDownloadingPhotos()
                                 }
                             } else {
-                                //completionHandlerForPhotoDownload(false, error)
+                                self.displayError(error)
                             }
                         }
                     } else {
-                        //completionHandlerForPhotoDownload(false, error)
+                        self.displayError(error)
                     }
                 }
             } else {
-                //completionHandlerForPhotoDownload(false, error)
+                self.displayError(error)
             }
         }
     }
@@ -124,7 +127,7 @@ extension PhotoAlbumViewController {
                 }
             }
         } catch {
-            completionHandlerForPhotoImageData(false, "Could not fetch photos: \(error)")
+            completionHandlerForPhotoImageData(false, "Could not fetch photos")
         }
         
         completionHandlerForPhotoImageData(true, nil)
