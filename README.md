@@ -1,14 +1,14 @@
 # Virtual Tourist
 ![Alt Text](https://github.com/Ramesh-P/virtual-tourist/blob/master/Virtual%20Tourist/Assets.xcassets/AppIcon.appiconset/Icon-60%403x.png)
 ## Overview
-
+Virtual Tourist allows users specify travel locations around the world, and create virtual photo albums for each location. The locations and associated photo albums are stored in Core Data. The complete project specification for Virtual Tourist can be found [here](https://docs.google.com/document/d/1j-UIi1jJGuNWKoEjEk09wwYf4ebefnwcVrUYbiHh1MI/pub?embedded=true)
 ## Specification
 Virtual Tourist is built and tested for the following software versions:
 * Xcode 8.1
 * iOS 10.0 (Minimum)
 * Swift 3.0.1 
 ## Preview
-
+![virtual-tourist](https://cloud.githubusercontent.com/assets/25907551/24068856/b7ddb768-0b6f-11e7-8594-c5b942bf7350.gif)
 ## Features
 Virtual Tourist incorporates all the features stipulated by Udacity and extra credit and additional features as listed below
 ### Extra Credit Features
