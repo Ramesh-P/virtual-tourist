@@ -8,7 +8,7 @@ Virtual Tourist is built and tested for the following software versions:
 * iOS 10.0 (Minimum)
 * Swift 3.0.1 
 ## Preview
-![virtual-tourist](https://cloud.githubusercontent.com/assets/25907551/24068856/b7ddb768-0b6f-11e7-8594-c5b942bf7350.gif)
+![virtual-tourist](https://cloud.githubusercontent.com/assets/25907551/24127950/f569d38c-0dae-11e7-823f-4e83f801869e.gif)
 ## Features
 Virtual Tourist incorporates all the features stipulated by Udacity and extra credit and additional features as listed below
 ### Extra Credit Features
