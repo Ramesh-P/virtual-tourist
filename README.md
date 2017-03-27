@@ -1,23 +1,30 @@
 # Virtual Tourist
-![Alt Text](https://github.com/Ramesh-P/virtual-tourist/blob/master/Virtual%20Tourist/Assets.xcassets/AppIcon.appiconset/Icon-60%403x.png)
+![Logo](https://raw.githubusercontent.com/Ramesh-P/virtual-tourist/master/Virtual%20Tourist/Assets.xcassets/AppIcon.appiconset/Icon-60%403x.png)
+
 ## Overview
 Virtual Tourist allows users specify travel locations around the world, and create virtual photo albums for each location. The locations and associated photo albums are stored in Core Data. The complete project specification for Virtual Tourist can be found [here](https://docs.google.com/document/d/1j-UIi1jJGuNWKoEjEk09wwYf4ebefnwcVrUYbiHh1MI/pub?embedded=true)
+
 ## Specification
 Virtual Tourist is built and tested for the following software versions:
 * Xcode 8.1
 * iOS 10.0 (Minimum)
 * Swift 3.0.1 
+
 ## Preview
 ![virtual-tourist](https://cloud.githubusercontent.com/assets/25907551/24127950/f569d38c-0dae-11e7-823f-4e83f801869e.gif)
+
 ## Features
 Virtual Tourist incorporates all the features stipulated by Udacity and extra credit and additional features as listed below
+
 ### Extra Credit Features
 Virtual Tourist includes the following extra credit features:
 * Persisting map zoom is implemented using the “Preset” entity in the core data model. This is an additional entity beyond required Pin and Photo entities
 * Enables the user to drop and drag the pin while adding a new pin
 * Images for the pin location are downloaded immediately upon adding a new pin without the user having to navigate to the photo album view
+
 ### Additional Features
 Virtual Tourist is beautifully designed with the following additional features:
+
 #### Travel Locations Map View
 * Map tile overlay adds aesthetic beauty to the app
 * Matching custom annotations (pins) adds to the visual appeal of the app
@@ -29,6 +36,7 @@ Virtual Tourist is beautifully designed with the following additional features:
 * Photos are selected from random groups between date posted, date taken, interestingness, and relevance
 * Apple style edit menu provides a familiar user interface
 * Context sensitive user actions are provided through a banner at the bottom
+
 #### Photo Album View
 * Pin geolocation is displayed as readable address
   * This enhances the user experience, as this helps to correlate the photos to the location where it is taken
@@ -36,10 +44,13 @@ Virtual Tourist is beautifully designed with the following additional features:
   * This enhances the user experience, as this provides context for each photo
 * Apple style edit menu provides a familiar user interface
 * Context sensitive user actions are provided through a banner at the bottom
+
 ## Authors
 * [Ramesh Parthasarathy](mailto:msg.rameshp@gmail.com)
+
 ## License
 Virtual Tourist is licensed under [MIT License](https://github.com/Ramesh-P/virtual-tourist/blob/master/LICENSE)
+
 ## Credits
 Virtual Tourist uses icons and images from:
 <pre>http://www.flaticon.com</pre>
